@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class BinarySearch{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of Teams:");
+        int n=sc.nextInt();
+        if(n<=0){
+            System.out.println("Invalid Input");
+            return;
+        }
+        int[] arr=new int[n];
+        System.out.println("Enter the score:");
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+        System.out.println("Enter the score to be searched:");
+        int search=sc.nextInt();
+        if(binarySearch(arr,arr.length,search)!=-1)
+            System.out.println(search+" is the score of Team "+binarySearch(arr,arr.length,search));
+        else
+            System.out.println("Score Not Found");
+    }
+    public static int binarySearch(int[] ar,int size,int key){
+        int ret=-1;
+        for(int i=0;i<size;i++){
+            if(ar[i]==key)
+                ret=i+1;
+        }
+        return ret;
+    }
+}

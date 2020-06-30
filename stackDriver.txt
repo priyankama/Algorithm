@@ -1,0 +1,43 @@
+import java.util.*;
+class Stack{
+    int arr[];
+    int top;
+    public Stack(int size){
+        arr=new int[size];
+        top=-1;
+    }
+    public void push(int a){
+        top+=1;
+        arr[top]=a;
+    }
+    public int pop(){
+        return(arr[arr.length-1]);
+    }
+    public int findMiddle(){
+        if(arr.length%2==0)
+            return(arr[(arr.length/2)-1]);
+        else
+            return(arr[arr.length/2]);
+    }
+}
+public class StackDriver{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n;
+        System.out.println("Enter the number of elements to be pushed in the stack:");
+        n=sc.nextInt();
+        if(n<=0)
+            System.out.println("Invalid Input");
+        else{
+            Stack stObj=new Stack(n);
+            int i=1;
+            do{
+                System.out.println("Enter the element "+i+":");
+                stObj.push(sc.nextInt());
+                i++;
+            }while(i<=n);
+            System.out.println("The middle element is: "+stObj.findMiddle());
+            System.out.println("The popped element is: "+stObj.pop());
+        }
+    }
+}

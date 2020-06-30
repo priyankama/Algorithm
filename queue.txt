@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class ScoreCardDriver{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n;
+        int res[]=new int[5];
+        System.out.print("Enter the size of the score card:");
+        n=sc.nextInt();
+        if(n<=0 || n>100)
+            System.out.println("Invalid score card size");
+        else{
+            int[] arr=new int[n];
+            int i=1;
+            do{
+                System.out.print("Enter the hurdle race score "+i+":");
+                arr[i-1]=sc.nextInt();
+                i++;
+            }while(i<=n);
+            int j=0;
+            int k=n-5;
+            do{
+                res[j]=arr[k];
+                j++;
+                k++;
+            }while(j<n && k<n);
+            System.out.print("Latest hurdle race scores are: ");
+            for(int l=0;l<5;l++)
+                System.out.print(res[l]+" ");
+        }
+    }
+}
